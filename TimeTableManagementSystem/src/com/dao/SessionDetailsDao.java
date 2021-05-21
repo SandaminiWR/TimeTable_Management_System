@@ -3,7 +3,7 @@ package com.dao;
 import java.sql.*;
 import java.util.ArrayList;
 
-import com.models.UsrSession;
+import com.models.Session;
 import com.util.DBUtill;
 
 
@@ -12,13 +12,13 @@ public class SessionDetailsDao {
 	Connection con = DBUtill.getConnection();
 	
 	
-	public ArrayList<UsrSession> getSessions(){
+	public ArrayList<Session> getSessions(){
 		
 		
 		
 		String query = "select * from session_details";
 		
-		ArrayList<UsrSession> list = new ArrayList<>();
+		ArrayList<Session> list = new ArrayList<>();
 		Statement st;
 		try {
 			st = con.createStatement();
@@ -26,7 +26,7 @@ public class SessionDetailsDao {
 			ResultSet rs = st.executeQuery(query);
 			
 			while(rs.next()) {
-				UsrSession obj = new UsrSession();
+				Session obj = new Session();
 				obj.setId(rs.getInt(1));
 				obj.setFirstLec(rs.getString(2));
 				obj.setSecondLec(rs.getString(3));
@@ -51,12 +51,12 @@ public class SessionDetailsDao {
 		return list;
 	}
 	
-	public UsrSession getSessionByID(int id) {
+	public Session getSessionByID(int id) {
 		
 		
 		
 		String query = "select * from session_details where id = '"+id+"' ";
-		UsrSession obj = new UsrSession();
+		Session obj = new Session();
 		try {
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery(query);

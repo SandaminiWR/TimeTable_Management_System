@@ -15,16 +15,13 @@ import com.dao.ManageSessionRoomsDao;
 import com.dao.SessionDetailsDao;
 import com.models.Location;
 import com.models.Manage_SessionRooms;
-import com.models.UsrSession;
+import com.models.Session;
 
 import javax.swing.JLabel;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
@@ -64,25 +61,6 @@ public class ManageSessionRoom extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btn_home = new JButton("");
-		btn_home.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btn_home.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				MainPanel_Home obj = new MainPanel_Home();
-				obj.main(null);;
-				dispose();
-			}
-		});
-		btn_home.setBackground(new Color(0,0,0,0));
-		btn_home.setIcon(new ImageIcon("F:\\_____SLIIT_____\\3_RD_YEAR\\IT3040______ITPM_____\\ITPMFinalWorkSpace\\TimeTable_Management_System\\TimeTableManagementSystem\\image\\Home-icon (1).png"));
-		btn_home.setBounds(0, 0, 88, 80);
-		contentPane.add(btn_home);
-
-		
 		JLabel lblNewLabel = new JLabel("Manage Session Room");
 		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -120,7 +98,7 @@ public class ManageSessionRoom extends JFrame {
 		
 		
 		SessionDetailsDao daoObject = new SessionDetailsDao();
-		ArrayList<UsrSession> sessionList = daoObject.getSessions();
+		ArrayList<Session> sessionList = daoObject.getSessions();
 		
 		ArrayList<Integer> idList = new ArrayList<>();
 		

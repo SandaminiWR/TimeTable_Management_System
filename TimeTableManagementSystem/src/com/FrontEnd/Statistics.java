@@ -5,22 +5,19 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
+/*
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;*/
 
 import com.dao.StatisticsDAOImpl;
 
@@ -37,7 +34,7 @@ public class Statistics extends JFrame {
 	private JTextField subject;
 	private JPanel panel_chart;
 	private JButton btn_chart;
-	ChartFrame chartfrm;
+	//ChartFrame chartfrm;
 
 	/**
 	 * Launch the application.
@@ -66,25 +63,6 @@ public class Statistics extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		JButton btn_home = new JButton("");
-		btn_home.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btn_home.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				MainPanel_Home obj = new MainPanel_Home();
-				obj.main(null);;
-				dispose();
-			}
-		});
-		btn_home.setBackground(new Color(0,0,0,0));
-		btn_home.setIcon(new ImageIcon("F:\\_____SLIIT_____\\3_RD_YEAR\\IT3040______ITPM_____\\ITPMFinalWorkSpace\\TimeTable_Management_System\\TimeTableManagementSystem\\image\\Home-icon (1).png"));
-		btn_home.setBounds(0, 0, 88, 80);
-		contentPane.add(btn_home);
-
 		
 		panel_chart = new JPanel();
 		panel_chart.setBounds(63, 262, 549, 409);
@@ -178,11 +156,11 @@ public class Statistics extends JFrame {
 		
 		contentPane.add(panel_chart);
 		
-		JButton btn_chart = new JButton("Chart\r\n");
+	/*	JButton btn_chart = new JButton("Chart\r\n");
 		btn_chart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				DefaultCategoryDataset data = new DefaultCategoryDataset() ;
+			DefaultCategoryDataset data = new DefaultCategoryDataset() ;
 				StatisticsDAOImpl stat = new StatisticsDAOImpl();
 		
 				int lecHallCount = stat.getRoom("LectureHall");
@@ -204,7 +182,7 @@ public class Statistics extends JFrame {
 				showChart.add(chartpanel);
 				showChart.updateUI();
 			}
-		});
+		});*/
 		btn_chart.setBounds(26, 364, 85, 21);
 		panel_chart.add(btn_chart);
 		

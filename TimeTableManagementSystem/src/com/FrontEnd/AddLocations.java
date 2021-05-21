@@ -12,19 +12,15 @@ import javax.swing.table.JTableHeader;
 import com.dao.ManageSessionRoomsDao;
 import com.dao.SessionDetailsDao;
 import com.models.Manage_SessionRooms;
-import com.models.UsrSession;
+import com.models.Session;
 
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import java.awt.Color;
 import java.awt.ScrollPane;
-
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
@@ -64,25 +60,6 @@ public class AddLocations extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		JButton btn_home = new JButton("");
-		btn_home.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btn_home.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				MainPanel_Home obj = new MainPanel_Home();
-				obj.main(null);;
-				dispose();
-			}
-		});
-		btn_home.setBackground(new Color(0,0,0,0));
-		btn_home.setIcon(new ImageIcon("F:\\_____SLIIT_____\\3_RD_YEAR\\IT3040______ITPM_____\\ITPMFinalWorkSpace\\TimeTable_Management_System\\TimeTableManagementSystem\\image\\Home-icon (1).png"));
-		btn_home.setBounds(0, 0, 88, 80);
-		contentPane.add(btn_home);
-
 		
 		JLabel lblNewLabel = new JLabel("Add Locations");
 		lblNewLabel.setBackground(Color.GREEN);
@@ -150,7 +127,7 @@ public class AddLocations extends JFrame {
 			for(int i=0;i<array.size();i++) {
 
 			tableModel.addRow(new Object[0]);
-			UsrSession object = daoSession.getSessionByID(array.get(i).getId());
+			Session object = daoSession.getSessionByID(array.get(i).getId());
 			
 			
 			tableModel.setValueAt(array.get(i).getId(), i, 0);
