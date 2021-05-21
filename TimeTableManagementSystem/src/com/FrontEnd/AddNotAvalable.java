@@ -114,8 +114,7 @@ public class AddNotAvalable extends JFrame implements ActionListener, MouseListe
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1366, 768);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.DARK_GRAY);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+				contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		 
@@ -129,6 +128,7 @@ public class AddNotAvalable extends JFrame implements ActionListener, MouseListe
 		 	public void mouseClicked(MouseEvent e) {
 		 		MainPanel_Home obj = new MainPanel_Home();
 				obj.main(null);
+				dispose();
 		 	}
 		 });
 		 btn_home.setBackground(new Color(0,0,0,0));
@@ -205,13 +205,15 @@ public class AddNotAvalable extends JFrame implements ActionListener, MouseListe
 		panel_allocation.add(comboSID);
 		
 		 btnSub = new JButton("SUBMIT");
+		 btnSub.setFont(new Font("Tahoma", Font.BOLD, 13));
 		 btnSub.addActionListener(this);
 		btnSub.setBounds(528, 568, 120, 30);
 		panel_allocation.add(btnSub);
 		
 		 btnClear = new JButton("CLEAR");
+		 btnClear.setFont(new Font("Tahoma", Font.BOLD, 13));
 		 btnClear.addActionListener(this);
-		btnClear.setBounds(910, 570, 96, 26);
+		btnClear.setBounds(910, 566, 96, 30);
 		panel_allocation.add(btnClear);
 		
 		JLabel lblNewLabel_7 = new JLabel("Lectures , Groups & Sub Groups");
@@ -230,8 +232,9 @@ public class AddNotAvalable extends JFrame implements ActionListener, MouseListe
 		panel_allocation.add(comboBox_Min);
 		
 		 btn_view = new JButton("VIEW");
+		 btn_view.setFont(new Font("Tahoma", Font.BOLD, 13));
 		 btn_view.addActionListener(this);
-		btn_view.setBounds(733, 572, 89, 23);
+		btn_view.setBounds(733, 568, 89, 30);
 		panel_allocation.add(btn_view);
 		
 		panel_manage = new JPanel();
@@ -247,18 +250,21 @@ public class AddNotAvalable extends JFrame implements ActionListener, MouseListe
 		scrollPane.setViewportView(table);
 		
 		 BTN_REFRESH_UP = new JButton("REFRESH");
+		 BTN_REFRESH_UP.setFont(new Font("Tahoma", Font.BOLD, 13));
 		 BTN_REFRESH_UP.addActionListener(this);
-		BTN_REFRESH_UP.setBounds(176, 487, 89, 23);
+		BTN_REFRESH_UP.setBounds(176, 475, 109, 35);
 		panel_manage.add(BTN_REFRESH_UP);
 		
 		 btn_Delete_UP = new JButton("DELETE");
+		 btn_Delete_UP.setFont(new Font("Tahoma", Font.BOLD, 13));
 		 btn_Delete_UP.addActionListener(this);
-		btn_Delete_UP.setBounds(406, 487, 89, 23);
+		btn_Delete_UP.setBounds(406, 475, 89, 35);
 		panel_manage.add(btn_Delete_UP);
 		
 		 btn_bck_UP = new JButton("BACK");
+		 btn_bck_UP.setFont(new Font("Tahoma", Font.BOLD, 13));
 		 btn_bck_UP.addActionListener(this);
-		btn_bck_UP.setBounds(650, 487, 89, 23);
+		btn_bck_UP.setBounds(650, 475, 89, 35);
 		panel_manage.add(btn_bck_UP);
 		
 		
@@ -294,8 +300,8 @@ public class AddNotAvalable extends JFrame implements ActionListener, MouseListe
 		try {
 			rs = db.getStudentGroups();
 			while(rs.next()) {
-				comboGroup.addItem(rs.getString("Group_ID"));
-				comboSub.addItem(rs.getString("Sub_Group_Id"));
+				comboGroup.addItem(rs.getString("G_ID"));
+				comboSub.addItem(rs.getString("Sub_ID"));
 			}
 		} catch (SQLException e) {
 			// 
@@ -390,7 +396,7 @@ public class AddNotAvalable extends JFrame implements ActionListener, MouseListe
 			
 			String Lecture = (String) comboLec.getSelectedItem();
 			String Maingroup = (String) comboGroup.getSelectedItem();
-			String Subgroup = (String) comboSID.getSelectedItem();
+			String Subgroup = (String) comboSub.getSelectedItem();
 			String SessssionID = (String) comboSID.getSelectedItem();
 			String timesHrs = (String) comboBox_Hrs.getSelectedItem()+":"+(String) comboBox_Min.getSelectedItem();
 		
@@ -469,6 +475,7 @@ public class AddNotAvalable extends JFrame implements ActionListener, MouseListe
 		comboLec.setSelectedItem("Select a Lecture");			
 		comboGroup.setSelectedItem("Select a Group");
 		comboSub.setSelectedItem("Select a Sub Group");
+		comboSID.setSelectedItem("Select a ID");
 		comboSID.setSelectedItem("select a ID");
 		comboBox_Hrs.setSelectedItem("Time");
 		comboBox_Min.setSelectedItem("Time");

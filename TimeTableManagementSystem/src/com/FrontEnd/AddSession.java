@@ -52,13 +52,12 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 	private JPanel contentPane;
 	private JPanel panelUpdate;
 	private JTextField textField_No_Student_Insert;
+	private JPanel panelInsert;
 
 	
 	
 	private JButton btnSave_Insert;
 	private JButton btnReset_Insert;
-	private JButton btnBack_Insert;
-	private JButton btnBack_Update;
 	private JButton btnRefresh_Update;
 	private JButton btnSwitchAddSession_update;
 	
@@ -128,6 +127,18 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 			}
 		});
 	}
+public void switchPanels(JPanel panel) {
+		
+		
+		
+		//frame.setVisible(true);
+		layeredPane.removeAll();		
+		layeredPane.add(panel);
+		layeredPane.repaint();
+		layeredPane.revalidate();
+		
+	}
+	
 
 	/**
 	 * Create the frame.
@@ -149,24 +160,36 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 		contentPane.setLayout(null);
 		
 		 JButton btn_home = new JButton("");
+		 btn_home.setBounds(10, 0, 88, 80);
+		 contentPane.add(btn_home);
+		 btn_home.addActionListener(new ActionListener() {
+		 	public void actionPerformed(ActionEvent arg0) {
+		 	}
+		 });
 		 btn_home.addMouseListener(new MouseAdapter() {
 		 	@Override
 		 	public void mouseClicked(MouseEvent e) {
 		 		MainPanel_Home obj = new MainPanel_Home();
 				obj.main(null);
+				dispose();
 		 	}
 		 });
 		 btn_home.setBackground(new Color(0,0,0,0));
 		 btn_home.setIcon(new ImageIcon("F:\\_____SLIIT_____\\3_RD_YEAR\\IT3040______ITPM_____\\ITPMFinalWorkSpace\\TimeTable_Management_System\\TimeTableManagementSystem\\image\\Home-icon (1).png"));
-		 btn_home.setBounds(0, 0, 88, 80);
-		 contentPane.add(btn_home);
 		
 		layeredPane = new JLayeredPane();
 		layeredPane.setBounds(5, 5, 1338, 711);
 		contentPane.add(layeredPane);
 		layeredPane.setLayout(new CardLayout(0, 0));
 		
-		JPanel panelInsert = new JPanel();
+
+		
+		panelUpdate = new JPanel();
+		panelUpdate.setLayout(null);
+		layeredPane.add(panelUpdate, "name_20894920200200");
+		
+		
+		panelInsert = new JPanel();
 		panelInsert.setLayout(null);
 		layeredPane.add(panelInsert, "name_20874509085900");
 		
@@ -178,7 +201,7 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 		JPanel panel_3_1 = new JPanel();
 		panel_3_1.setLayout(null);
 		panel_3_1.setBorder(new CompoundBorder(new TitledBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)), "Session Insert", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)), new CompoundBorder(new BevelBorder(BevelBorder.RAISED, new Color(255, 200, 0), new Color(64, 64, 64), new Color(0, 0, 0), new Color(255, 0, 0)), new MatteBorder(11, 11, 11, 11, (Color) new Color(128, 128, 128)))));
-		panel_3_1.setBounds(82, 62, 631, 656);
+		panel_3_1.setBounds(90, 53, 631, 656);
 		panel_4.add(panel_3_1);
 		
 		JLabel lblNewLabel_1 = new JLabel("Select Lecture(s)");
@@ -199,7 +222,7 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 		btnSave_Insert = new JButton("SAVE");
 		btnSave_Insert.addActionListener(this);
 		btnSave_Insert.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnSave_Insert.setBounds(43, 561, 146, 32);
+		btnSave_Insert.setBounds(137, 561, 146, 32);
 		panel_3_1.add(btnSave_Insert);
 		
 		comboBox_Tag_Insert = new JComboBox();
@@ -247,21 +270,15 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 		panel_3_1.add(comboBox_sele_lec_Insert);
 		
 		comboBox_TimeSlot_Insert = new JComboBox();
-		comboBox_TimeSlot_Insert.setModel(new DefaultComboBoxModel(new String[] {"1", "2"}));
+		comboBox_TimeSlot_Insert.setModel(new DefaultComboBoxModel(new String[] {"8.30 - 9.30", "9.30 - 10.30", "10.30 - 11.30", "11.30 - 12.30", "12.30 - 1.30", "1.30 - 2.30", "2.30 - 3.30", "3.30 - 4.30", "4.30 - 5.30"}));
 		comboBox_TimeSlot_Insert.setBounds(300, 477, 163, 24);
 		panel_3_1.add(comboBox_TimeSlot_Insert);
 		
 		btnReset_Insert = new JButton("RESET");
 		btnReset_Insert.addActionListener(this);
 		btnReset_Insert.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnReset_Insert.setBounds(251, 561, 146, 32);
+		btnReset_Insert.setBounds(375, 561, 146, 32);
 		panel_3_1.add(btnReset_Insert);
-		
-		btnBack_Insert = new JButton("BACK");
-		btnBack_Insert.addActionListener(this);
-		btnBack_Insert.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnBack_Insert.setBounds(451, 561, 146, 32);
-		panel_3_1.add(btnBack_Insert);
 		
 		JLabel lblNewLabel_5_2 = new JLabel("Room");
 		lblNewLabel_5_2.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -279,7 +296,7 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 		panel_3_1.add(lblNewLabel_8_1);
 		
 		comboBox_Day_Insert_1 = new JComboBox();
-		comboBox_Day_Insert_1.setModel(new DefaultComboBoxModel(new String[] {"select a Day"}));
+		comboBox_Day_Insert_1.setModel(new DefaultComboBoxModel(new String[] {"select a Day", "Monday", "Tuesday", "Wensday", "Thurstday", "Friday"}));
 		comboBox_Day_Insert_1.setBounds(57, 477, 163, 24);
 		panel_3_1.add(comboBox_Day_Insert_1);
 		
@@ -308,16 +325,6 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 		lblNewLabel_4.setBounds(586, 0, 204, 42);
 		panel_4.add(lblNewLabel_4);
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				switchPanels(panelUpdate);
-			}
-		});
-		btnNewButton.setBounds(1201, 39, 97, 25);
-		panel_4.add(btnNewButton);
-		
 		JScrollPane scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBounds(799, 110, 491, 73);
 		panel_4.add(scrollPane_1);
@@ -326,13 +333,11 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 		
 		
 		
-		panelUpdate = new JPanel();
-		panelUpdate.setLayout(null);
-		layeredPane.add(panelUpdate, "name_20894920200200");
+		
 		
 		JPanel panel_4_1 = new JPanel();
 		panel_4_1.setLayout(null);
-		panel_4_1.setBounds(0, 0, 1340, 729);
+		panel_4_1.setBounds(10, 22, 1340, 729);
 		panelUpdate.add(panel_4_1);
 		
 		JLabel lblNewLabel_4_1 = new JLabel("Session Management");
@@ -363,13 +368,6 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 		btnSwitchAddSession_update.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnSwitchAddSession_update.setBounds(1143, 658, 168, 32);
 		panel_4_1.add(btnSwitchAddSession_update);
-		
-		btnBack_Update = new JButton("BACK");
-		btnBack_Update.addActionListener(this);
-		btnBack_Update.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnBack_Update.setBackground(Color.GRAY);
-		btnBack_Update.setBounds(31, 7, 146, 32);
-		panel_4_1.add(btnBack_Update);
 		
 		panel_3 = new JPanel();
 		panel_3.setLayout(null);
@@ -442,7 +440,7 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 		panel_3.add(comboBox_sele_lec_Update);
 		
 		comboBox_TimeSlot_Update = new JComboBox();
-		comboBox_TimeSlot_Update.setModel(new DefaultComboBoxModel(new String[] {"select a type", "1", "2"}));
+		comboBox_TimeSlot_Update.setModel(new DefaultComboBoxModel(new String[] {"select a type", "8.30 - 9.30", "9.30 - 10.30", "10.30 - 11.30", "11.30 - 12.30", "12.30 - 1.30", "1.30 - 2.30", "2.30 - 3.30", "3.30 - 4.30", "4.30 - 5.30"}));
 		comboBox_TimeSlot_Update.setBounds(300, 477, 163, 24);
 		panel_3.add(comboBox_TimeSlot_Update);
 		
@@ -468,7 +466,7 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 		panel_3.add(lblNewLabel_8_2);
 		
 		comboBox_Day_Update = new JComboBox();
-		comboBox_Day_Update.setModel(new DefaultComboBoxModel(new String[] {"select a type"}));
+		comboBox_Day_Update.setModel(new DefaultComboBoxModel(new String[] {"select a type", "Monday", "Tuesday", "Wensday", "Thurstday", "Friday"}));
 		comboBox_Day_Update.setBounds(57, 477, 163, 24);
 		panel_3.add(comboBox_Day_Update);
 		
@@ -502,7 +500,7 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 	    tableModel = new DefaultTableModel(columns, 0);
 		this.tableLecSelecInsert.setModel(tableModel);	
 		scrollPane_1.setViewportView(tableLecSelecInsert);
-		
+	
 		table_selec_lec_update = new JTable();
 		String[] columnx = {"ID", "Name"};		
 	    tableModelx = new DefaultTableModel(columnx, 0);
@@ -523,22 +521,9 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 	}
 	
 	
-	
 
-	public void switchPanels(JPanel panel) {
 		
-		
-		refreshTableUpdate();
-		
-		//frame.setVisible(true);
-		layeredPane.removeAll();		
-		layeredPane.add(panel);
-		layeredPane.repaint();
-		layeredPane.revalidate();
-		
-		
-		
-	}
+	
 	
 	public void refreshTableUpdate() {
 		
@@ -576,7 +561,7 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 		try {
 			rs = db.getTags();
 			while(rs.next()) {
-				comboBox_Tag_Insert.addItem(rs.getString("Related_Tags"));
+				comboBox_Tag_Insert.addItem(rs.getString("rel_tags"));
 			
 			}
 		} catch (SQLException e) {
@@ -610,8 +595,8 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 		try {
 			rs = db.getStudentGroups();
 			while(rs.next()) {
-				comboBox_MainGroup_Insert.addItem(rs.getString("Group_ID"));
-				comboBox_SubGroup_Insert_1.addItem(rs.getString("Sub_Group_Id"));
+				comboBox_MainGroup_Insert.addItem(rs.getString("G_ID"));
+				comboBox_SubGroup_Insert_1.addItem(rs.getString("Sub_ID"));
 			
 			}
 		} catch (SQLException e) {
@@ -628,8 +613,9 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 		try {
 			rs = db.getSubject();
 			while(rs.next()) {
-				comboBox_SubCode_Insert.addItem(rs.getString("Subject_Code"));
 				comboBox_Subj_Insert_1.addItem(rs.getString("Subject_Name"));
+				comboBox_SubCode_Insert.addItem(rs.getString("Subject_code"));
+				
 				
 				
 			}
@@ -669,7 +655,7 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 			rs = db.getTags();
 			while(rs.next()) {
 				
-				comboBox_Tag_Update.addItem(rs.getString("Related_Tags"));
+				comboBox_Tag_Update.addItem(rs.getString("rel_tags"));
 			}
 		} catch (SQLException e) {
 			// 
@@ -703,8 +689,8 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 			rs = db.getStudentGroups();
 			while(rs.next()) {
 				
-				comboBox_MainGroup_Update.addItem(rs.getString("Group_ID"));
-				comboBox_SubGroup_Update.addItem(rs.getString("Sub_Group_Id"));
+				comboBox_MainGroup_Update.addItem(rs.getString("G_ID"));
+				comboBox_SubGroup_Update.addItem(rs.getString("Sub_ID"));
 			}
 		} catch (SQLException e) {
 			// 
@@ -720,9 +706,9 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 		try {
 			rs = db.getSubject();
 			while(rs.next()) {
-			
-				comboBox_SubCode_Update.addItem(rs.getString("Subject_Code"));
 				comboBox_Subj_Update.addItem(rs.getString("Subject_Name"));
+				comboBox_SubCode_Update.addItem(rs.getString("Subject_code"));
+				
 				
 			}
 		} catch (SQLException e) {
@@ -824,6 +810,10 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 			refreshComboBox();
 			refreshtableLecSelecInsert();
 			textField_No_Student_Insert.setText(null);
+			switchPanels(panelUpdate);
+			refreshTableUpdate();
+
+			
 				
     	}
 		
@@ -832,12 +822,6 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 			refreshComboBox();			
 			textField_No_Student_Insert.setText(null);
 						
-		}
-		
-		
-		if( e.getSource() == btnBack_Insert ) {
-			
-			
 		}
 		
 		/*
@@ -881,7 +865,7 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 			String noOfStudent = textField_Update.getText();
 			String timeslot = (String) comboBox_TimeSlot_Update.getSelectedItem();
 			String Day = (String) comboBox_Day_Update.getSelectedItem();
-			int id;
+			int sid;
 			
 			
 			
@@ -914,8 +898,8 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 			
 		
 			try {
-				 id = session.getSession_ID();
-				 System.out.println(id);
+				 sid = session.getSession_ID();
+				 System.out.println(sid);
 			}catch(Exception ex) {
 				JOptionPane.showMessageDialog(this, "Please select data to Update", "Update Error", JOptionPane.WARNING_MESSAGE);
 				return;
@@ -931,10 +915,10 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 			}
 			
 			if(lec2.equals("")) {
-				updateSession( id,  lec1,  subject,  subjectCode,  Tag,  Room,  Maingroup,  Subgroup,  Day, timeslot,noStudent);
+				updateSession( sid,  lec1,  subject,  subjectCode,  Tag,  Room,  Maingroup,  Subgroup,  Day, timeslot,noStudent);
 			}else {
 				
-				updateSession( id,  lec1, lec2, subject,  subjectCode,  Tag,  Room,  Maingroup,  Subgroup,  Day, timeslot, noStudent);
+				updateSession( sid,  lec1, lec2, subject,  subjectCode,  Tag,  Room,  Maingroup,  Subgroup,  Day, timeslot, noStudent);
 			}
 			y=0;
 			refreshTableUpdate();
@@ -948,25 +932,23 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 		
 		if( e.getSource() == btnRefresh_Update ) {
 			
-			
-		}
-		
-		if( e.getSource() == btnBack_Update ) {
-			
+			y=0;
+			refreshTableUpdate();
+			refreshComboBoxUpdate();
+			//textField_selected_lec_insert.setText(null);
+			textField_Update.setText(null);
+			refreshtableLecSelecUpdate();
 			
 		}
 
 		if( e.getSource() == btnSwitchAddSession_update ) {
 			
+		
+
+			switchPanels(panelInsert);
 			
 		}
-		
-		
-		if( e.getSource() == btnRefresh_Update ) {
-			
-			
-		}
-		
+	
 		
 		if(e.getSource() == comboBox_sele_lec_Insert ) {
 			

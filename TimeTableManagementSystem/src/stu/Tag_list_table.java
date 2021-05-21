@@ -122,6 +122,7 @@ public class Tag_list_table {
 		 	public void mouseClicked(MouseEvent e) {
 		 		MainPanel_Home obj = new MainPanel_Home();
 		obj.main(null);
+		frame.dispose();
 		 	}
 		 });
 		 btn_home.setBackground(new Color(0,0,0,0));

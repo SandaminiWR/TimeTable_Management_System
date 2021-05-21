@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 import java.awt.Font;
+import java.awt.Image;
 
 public class LoginPage {
 
@@ -127,6 +128,8 @@ public class LoginPage {
 		lblNewLabel_2.setBounds(10, 11, 966, 412);
 		
 		lblNewLabel_2.setIcon(new ImageIcon("F:\\_____SLIIT_____\\3_RD_YEAR\\IT3040______ITPM_____\\TimeManagmentSystem\\TimeTableManagementSystem\\image\\login.png"));
+		
+		
 		panel_1.add(lblNewLabel_2);
 	}
 }

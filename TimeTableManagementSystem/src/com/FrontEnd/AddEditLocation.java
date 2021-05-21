@@ -106,7 +106,7 @@ public class AddEditLocation extends JFrame implements ActionListener, MouseList
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 11, 1350, 729);
+		panel.setBounds(10, 11, 1330, 707);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -141,13 +141,15 @@ public class AddEditLocation extends JFrame implements ActionListener, MouseList
 		panel.add(lblSelectDay);
 		
 		 btnAddSe = new JButton("ADD ");
+		 btnAddSe.setFont(new Font("Tahoma", Font.BOLD, 13));
 		 btnAddSe.addActionListener(this);
-		btnAddSe.setBounds(497, 656, 133, 21);
+		btnAddSe.setBounds(497, 642, 133, 36);
 		panel.add(btnAddSe);
 		
-		 btnAddClear = new JButton("CLEAR");
+		 btnAddClear = new JButton("REFRESH");
+		 btnAddClear.setFont(new Font("Tahoma", Font.BOLD, 13));
 		 btnAddClear.addActionListener(this);
-		btnAddClear.setBounds(781, 656, 121, 21);
+		btnAddClear.setBounds(781, 642, 121, 36);
 		panel.add(btnAddClear);
 		
 		 comboBoxRoom = new JComboBox();
@@ -198,17 +200,19 @@ public class AddEditLocation extends JFrame implements ActionListener, MouseList
 		
 		JLabel lblNewLabel_4 = new JLabel("ADD Location");
 		lblNewLabel_4.setFont(new Font("DialogInput", Font.BOLD, 40));
-		lblNewLabel_4.setBounds(294, 43, 456, 64);
+		lblNewLabel_4.setBounds(511, 42, 456, 64);
 		panel.add(lblNewLabel_4);
 		
 		 btn_update = new JButton("UPDATE");
+		 btn_update.setFont(new Font("Tahoma", Font.BOLD, 13));
 		 btn_update.addActionListener(this);
-		btn_update.setBounds(651, 655, 89, 23);
+		btn_update.setBounds(651, 641, 89, 37);
 		panel.add(btn_update);
 		
 		 btn_delete = new JButton("DELETE");
+		 btn_delete.setFont(new Font("Tahoma", Font.BOLD, 13));
 		 btn_delete.addActionListener(this);
-		btn_delete.setBounds(933, 655, 89, 23);
+		btn_delete.setBounds(933, 641, 89, 37);
 		panel.add(btn_delete);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -229,6 +233,7 @@ public class AddEditLocation extends JFrame implements ActionListener, MouseList
 		 	public void actionPerformed(ActionEvent arg0) {
 		 		MainPanel_Home obj = new MainPanel_Home();
 				obj.main(null);
+				dispose();
 			
 		 	}
 		 });

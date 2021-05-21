@@ -101,6 +101,7 @@ public class Tag_sub {
 		 	public void mouseClicked(MouseEvent e) {
 		 		MainPanel_Home obj = new MainPanel_Home();
 		obj.main(null);
+		frmCreateTags.dispose();
 		 	}
 		 });
 		 btn_home.setBackground(new Color(0,0,0,0));

@@ -106,7 +106,7 @@ public class MainPanel_Home {
 		mnNotAvailable = new JMenu("NOT AVAILABLE");
 		mnNotAvailable.setForeground(Color.BLACK);
 		mnNotAvailable.setFont(new Font("Dialog", Font.BOLD, 15));
-		mnNotAvailable.setIcon(new ImageIcon("F:\\_____SLIIT_____\\3_RD_YEAR\\IT3040______ITPM_____\\ITPMFinalWorkSpace\\TimeTable_Management_System\\TimeTableManagementSystem\\image\\Configuration-icon (1).png"));
+		mnNotAvailable.setIcon(new ImageIcon("C:\\Users\\hp\\Desktop\\ITPMFinalWorkSpace\\TimeTable_Management_System\\TimeTableManagementSystem\\image\\Configuration-icon (1).png"));
 		menuBar.add(mnNotAvailable);
 		
 		menu_time = new JMenuItem("Manage Not-Available Time");
@@ -165,6 +165,8 @@ public class MainPanel_Home {
 				Non_Overlapping obj = new Non_Overlapping();
 				obj.main(null);
 				frmHome.dispose();
+				frmHome.dispose();
+
 			}
 		});
 		mnNotAvailable.add(menu_session);
@@ -183,6 +185,8 @@ public class MainPanel_Home {
 				AddLecturer sup = new AddLecturer();
 				AddLecturer.main(null);
 				frmHome.setVisible(false);
+				frmHome.dispose();
+
 			}
 		});
 		lbl_Static.setIcon(new ImageIcon("F:\\_____SLIIT_____\\3_RD_YEAR\\IT3040______ITPM_____\\TimeManagmentSystem\\TimeTableManagementSystem\\image\\static.png"));
@@ -205,6 +209,8 @@ public class MainPanel_Home {
 				WorkingDaysAndHours sup = new WorkingDaysAndHours();
 				WorkingDaysAndHours.main(null);
 				frmHome.setVisible(false);
+				frmHome.dispose();
+
 			}
 		});
 		lbl_Time.setIcon(new ImageIcon("F:\\_____SLIIT_____\\3_RD_YEAR\\IT3040______ITPM_____\\TimeManagmentSystem\\TimeTableManagementSystem\\image\\time.png"));
@@ -227,6 +233,8 @@ public class MainPanel_Home {
 				AddLecturer sup = new AddLecturer();
 				AddLecturer.main(null);
 				frmHome.setVisible(false);
+				frmHome.dispose();
+
 			}
 		});
 		lbl_Loc.setIcon(new ImageIcon("F:\\_____SLIIT_____\\3_RD_YEAR\\IT3040______ITPM_____\\TimeManagmentSystem\\TimeTableManagementSystem\\image\\loc.png"));
@@ -249,6 +257,8 @@ public class MainPanel_Home {
 				Tag_sub sup = new Tag_sub();
 				Tag_sub.main(null);
 				frmHome.setVisible(false);
+				frmHome.dispose();
+
 			}
 		});
 		lbl_Tag.setIcon(new ImageIcon("F:\\_____SLIIT_____\\3_RD_YEAR\\IT3040______ITPM_____\\TimeManagmentSystem\\TimeTableManagementSystem\\image\\tag.png"));
@@ -271,6 +281,8 @@ public class MainPanel_Home {
 				AddSubject sup = new AddSubject();
 				AddSubject.main(null);
 				frmHome.setVisible(false);
+				frmHome.dispose();
+
 				
 			}
 		});
@@ -294,6 +306,9 @@ public class MainPanel_Home {
 				Stu_grpt sup = new Stu_grpt();
 				Stu_grpt.main(null);
 				frmHome.setVisible(false);
+				frmHome.dispose();
+
+				
 			}
 		});
 		lbl_stu.setIcon(new ImageIcon("F:\\_____SLIIT_____\\3_RD_YEAR\\IT3040______ITPM_____\\TimeManagmentSystem\\TimeTableManagementSystem\\image\\stu.png"));
@@ -316,6 +331,7 @@ public class MainPanel_Home {
 				AddLecturer sup = new AddLecturer();
 				AddLecturer.main(null);
 				frmHome.setVisible(false);
+				frmHome.dispose();
 				
 			}
 		});
@@ -340,6 +356,7 @@ public class MainPanel_Home {
 				AddSession sup = new AddSession();
 				AddSession.main(null);
 				frmHome.setVisible(false);
+				
 			}
 		});
 		lbl_sess.setIcon(new ImageIcon("F:\\_____SLIIT_____\\3_RD_YEAR\\IT3040______ITPM_____\\TimeManagmentSystem\\TimeTableManagementSystem\\image\\sess.png"));
@@ -363,9 +380,10 @@ public class MainPanel_Home {
 			public void actionPerformed(ActionEvent arg0) {
 				TimeTable obj = new TimeTable();
 				obj.main(null);
+				frmHome.dispose();
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon("F:\\_____SLIIT_____\\3_RD_YEAR\\IT3040______ITPM_____\\ITPMFinalWorkSpace\\TimeTable_Management_System\\TimeTableManagementSystem\\image\\Generate-tables-icon.png"));
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\hp\\Desktop\\ITPMFinalWorkSpace\\TimeTable_Management_System\\TimeTableManagementSystem\\image\\Generate-tables-icon.png"));
 		btnNewButton.setBounds(84, 36, 128, 99);
 		panel.add(btnNewButton);
 		

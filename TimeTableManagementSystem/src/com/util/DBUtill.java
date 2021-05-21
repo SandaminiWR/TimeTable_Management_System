@@ -21,7 +21,7 @@ public class DBUtill {
 	private static PreparedStatement pst = null;
 	private static Statement stmt = null;
 	
-	private static final String url = "jdbc:mysql://localhost:3306/tms";
+	private static final String url = "jdbc:mysql::3306/tms";
 	private static final String user = "root";
 	private static final String passwrd = "";	 
 	
@@ -164,7 +164,7 @@ public class DBUtill {
 					String timeslot = rs.getString(12);
 					
 									
-					return new Session( id, lecture1, lecture2, tag, room ,maingroup, subgroup, subject,subjectCode,noOfStudent, day , timeslot);
+					return new Session( id, lecture1, lecture2, tag, room ,subgroup,maingroup,  subject,subjectCode,noOfStudent, day , timeslot);
 					
 				}
 			}catch( SQLException e ) {
@@ -267,7 +267,7 @@ public class DBUtill {
 			
 		 try {
 				getConnection();
-				String query = "Select Related_Tags From tag";				
+				String query = "Select rel_tags From tags";				
 				pst = con.prepareStatement(query);
 				rs = pst.executeQuery(query);			
 				
@@ -303,7 +303,7 @@ public class DBUtill {
 			
 		 try {
 				getConnection();
-				String query = "Select Group_ID,Sub_Group_Id From student_group";				
+				String query = "Select G_ID,Sub_ID From stu_grp";				
 				pst = con.prepareStatement(query);
 				rs = pst.executeQuery(query);			
 				
@@ -322,7 +322,7 @@ public class DBUtill {
 			
 		 try {
 				getConnection();
-				String query = "Select Subject_Code,Subject_Name From subject_details";				
+				String query = "Select Subject_Name,Subject_code From subject_details";				
 				pst = con.prepareStatement(query);
 				rs = pst.executeQuery(query);			
 				

@@ -61,14 +61,13 @@ public class AddLecturer extends JFrame implements ActionListener, MouseListener
 	
 	private JButton btnSave_Insert;
 	private JButton btnReset_Insert;
+	private JButton	btn_view;
 	private JButton btnSwitchAddLec_update;
 	private JButton btnGenarateRank_Insert;
 	private JButton btnGenarateRank_Update;
-	private JButton btnActiveHours__Update;
 	private JButton btnUpdate_Update;
 	private JButton btnDelete_Update;
 	private JButton btnRefresh_Update;
-	private JButton btnBack_Update;
 	
 	private JComboBox comboBox_Fac_Insert;
 	private JComboBox comboBox_Dep_Insert;
@@ -129,6 +128,7 @@ public class AddLecturer extends JFrame implements ActionListener, MouseListener
 		
 		this.db = new DBUtill();
 		this.employee = new EmployeeDao();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1366, 768);
 		contentPane = new JPanel();
@@ -136,11 +136,16 @@ public class AddLecturer extends JFrame implements ActionListener, MouseListener
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		JButton btn_home = new JButton("");
+		btn_home.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btn_home.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				MainPanel_Home obj = new MainPanel_Home();
-				obj.main(null);
+				obj.main(null);;
+				dispose();
 			}
 		});
 		btn_home.setBackground(new Color(0,0,0,0));
@@ -152,6 +157,12 @@ public class AddLecturer extends JFrame implements ActionListener, MouseListener
 		layeredPane.setBounds(5, 5, 1338, 711);
 		contentPane.add(layeredPane);
 		layeredPane.setLayout(new CardLayout(0, 0));
+		
+		
+		panelUpdate = new JPanel();
+		layeredPane.add(panelUpdate, "name_26406102267800");
+		panelUpdate.setLayout(null);
+
 		
 		//TextureLookAndFeel();
 		
@@ -202,11 +213,6 @@ public class AddLecturer extends JFrame implements ActionListener, MouseListener
 		lblNewLabel_7.setBounds(57, 360, 142, 32);
 		panel_3_1.add(lblNewLabel_7);
 		
-		JLabel lblNewLabel_8 = new JLabel("Active Hours");
-		lblNewLabel_8.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_8.setBounds(57, 540, 131, 32);
-		panel_3_1.add(lblNewLabel_8);
-		
 		JLabel lblNewLabel_9 = new JLabel("Level");
 		lblNewLabel_9.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_9.setBounds(57, 420, 142, 32);
@@ -221,7 +227,7 @@ public class AddLecturer extends JFrame implements ActionListener, MouseListener
 		
 		btnSave_Insert.addActionListener(this);
 		btnSave_Insert.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnSave_Insert.setBounds(142, 618, 146, 32);
+		btnSave_Insert.setBounds(178, 618, 146, 32);
 		panel_3_1.add(btnSave_Insert);
 		
 		textField_EmpName_Insert = new JTextField();
@@ -229,10 +235,6 @@ public class AddLecturer extends JFrame implements ActionListener, MouseListener
 		textField_EmpName_Insert.setColumns(10);
 		textField_EmpName_Insert.setBounds(300, 65, 257, 24);
 		panel_3_1.add(textField_EmpName_Insert);
-		
-		JButton btnSwitchActiveHours_Insert = new JButton("Click Here");
-		btnSwitchActiveHours_Insert.setBounds(300, 546, 164, 24);
-		panel_3_1.add(btnSwitchActiveHours_Insert);
 		
 		textField_rank_Insert = new JTextField();
 		textField_rank_Insert.setEditable(false);
@@ -290,14 +292,17 @@ public class AddLecturer extends JFrame implements ActionListener, MouseListener
 		btnBack_Insert.setBounds(613, 618, 146, 32);
 		panel_3_1.add(btnBack_Insert);
 		
+		btn_view = new JButton("VIEW");
+		btn_view.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btn_view.addActionListener(this);
+		btn_view.setBounds(35, 621, 106, 29);
+		panel_3_1.add(btn_view);
+		
 		JLabel lblNewLabel_4 = new JLabel("Lecturer Insert Form");
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblNewLabel_4.setBounds(586, 0, 204, 42);
 		panel_4.add(lblNewLabel_4);
-		
-		panelUpdate = new JPanel();
-		layeredPane.add(panelUpdate, "name_26406102267800");
-		panelUpdate.setLayout(null);
+	
 		/*try {
         //here you can put the selected theme class name in JTattoo
         UIManager.setLookAndFeel("com.jtattoo.plaf.texture.TextureLookAndFeel");
@@ -355,11 +360,6 @@ public class AddLecturer extends JFrame implements ActionListener, MouseListener
 		lblNewLabel_7_1.setBounds(57, 360, 142, 32);
 		panel_3_1_1.add(lblNewLabel_7_1);
 		
-		JLabel lblNewLabel_8_1 = new JLabel("Active Hours");
-		lblNewLabel_8_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_8_1.setBounds(57, 540, 131, 32);
-		panel_3_1_1.add(lblNewLabel_8_1);
-		
 		JLabel lblNewLabel_9_1 = new JLabel("Level");
 		lblNewLabel_9_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_9_1.setBounds(57, 420, 142, 32);
@@ -376,11 +376,6 @@ public class AddLecturer extends JFrame implements ActionListener, MouseListener
 		textField_Name_Update.setColumns(10);
 		textField_Name_Update.setBounds(300, 65, 257, 24);
 		panel_3_1_1.add(textField_Name_Update);
-		
-		btnActiveHours__Update = new JButton("Click Here");
-		btnActiveHours__Update.addActionListener(this);
-		btnActiveHours__Update.setBounds(300, 546, 164, 24);
-		panel_3_1_1.add(btnActiveHours__Update);
 		
 		textField_Rank_Update = new JTextField();
 		textField_Rank_Update.setFont(new Font("Calibri", Font.PLAIN, 12));
@@ -468,13 +463,6 @@ public class AddLecturer extends JFrame implements ActionListener, MouseListener
 		
 		btnSwitchAddLec_update.setBounds(1143, 658, 168, 32);
 		panel_4_1.add(btnSwitchAddLec_update);
-		
-		btnBack_Update = new JButton("BACK");
-		btnBack_Update.addActionListener(this);
-		btnBack_Update.setBounds(31, 7, 146, 32);
-		panel_4_1.add(btnBack_Update);
-		btnBack_Update.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnBack_Update.setBackground(Color.GRAY);
 		
 		this.refreshComboBox();
 		this.refreshTableUpdate();
@@ -614,8 +602,16 @@ public class AddLecturer extends JFrame implements ActionListener, MouseListener
 			refreshComboBox();
 			textField_rank_Insert.setText(null);
 			
+			
 		}
 		
+	if( e.getSource() == btn_view ) {
+			
+		switchPanels(panelUpdate);
+			
+			
+		}
+
 		
 		if( e.getSource() == btnReset_Insert ) {
 			
@@ -820,13 +816,6 @@ public class AddLecturer extends JFrame implements ActionListener, MouseListener
 		if(e.getSource() == btnRefresh_Update) {
 			
 			this.refreshTableUpdate();
-			
-		}
-		
-		if(e.getSource() == btnBack_Update) {
-			
-			TextureLookAndFeel();
-			switchPanels(panelInsert);
 			
 		}
 		
@@ -1050,21 +1039,4 @@ public class AddLecturer extends JFrame implements ActionListener, MouseListener
 		// 
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

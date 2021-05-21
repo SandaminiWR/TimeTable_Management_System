@@ -146,11 +146,16 @@ public class WorkingDaysAndHours extends JFrame implements ActionListener {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		JButton btn_home = new JButton("");
+		btn_home.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btn_home.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				MainPanel_Home obj = new MainPanel_Home();
 				obj.main(null);
+				dispose();
 			}
 		});
 		btn_home.setBackground(new Color(0,0,0,0));
@@ -370,7 +375,7 @@ public class WorkingDaysAndHours extends JFrame implements ActionListener {
 		
 		btnNewButton_switch_ins = new JButton("Manage Panel");
 		btnNewButton_switch_ins.addActionListener(this);
-		btnNewButton_switch_ins.setBounds(59, 548, 97, 25);
+		btnNewButton_switch_ins.setBounds(59, 548, 128, 25);
 		panelInsertWorking.add(btnNewButton_switch_ins);
 		
 		panelmanageWorking = new JPanel();
@@ -384,7 +389,7 @@ public class WorkingDaysAndHours extends JFrame implements ActionListener {
 		
 		JLabel lblNewLabel_11 = new JLabel("Employee ID");
 		lblNewLabel_11.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblNewLabel_11.setBounds(66, 59, 90, 16);
+		lblNewLabel_11.setBounds(98, 58, 90, 16);
 		panelmanageWorking.add(lblNewLabel_11);
 		
 		textField_id_mang = new JTextField();
@@ -771,6 +776,9 @@ public class WorkingDaysAndHours extends JFrame implements ActionListener {
 			buttonGroup_5.clearSelection();
 			buttonGroup_6.clearSelection();
 			textField_empID_insert.setText(null);
+					
+			
+ 	switchPanels(panelmanageWorking);
 			
 			
 		}
@@ -909,6 +917,7 @@ public class WorkingDaysAndHours extends JFrame implements ActionListener {
 		if( e.getSource() == btnNewButton_back_mng ) {
 			AcrylLookAndFeel();
 			switchPanels(panelInsertWorking);
+			
 		}
 		
 		
@@ -1017,6 +1026,7 @@ public class WorkingDaysAndHours extends JFrame implements ActionListener {
 				}
 				
 				showPlainMessageDialog("Successfuly Updated", "Update");
+				
 				
 				}catch (SQLException e1) {
 			// 

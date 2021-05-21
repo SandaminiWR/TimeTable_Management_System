@@ -33,7 +33,7 @@ static Connection con = DBUtill.getConnection();
 	
 	public void InsertSession(Session session) throws SQLException {
 		// 
-		System.out.println("session *Dao");
+	
 		PreparedStatement pst = con.prepareStatement("insert into session_details (ID,First_Lecture,Tag,room,Main_Group,Sub_Group,Subject,Subject_code,No_Of_Student,Day,Time_slot) values(?,?,?,?,?,?,?,?,?,?,?)");
 		pst.setInt(1, session.getSession_ID());
 		pst.setString(2, session.getLecture1());

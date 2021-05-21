@@ -129,11 +129,16 @@ public class AddSubject extends JFrame implements ActionListener, MouseListener{
 		contentPane.setLayout(null);
 		
 		 JButton btn_home = new JButton("");
+		 btn_home.addActionListener(new ActionListener() {
+		 	public void actionPerformed(ActionEvent arg0) {
+		 	}
+		 });
 		 btn_home.addMouseListener(new MouseAdapter() {
 		 	@Override
 		 	public void mouseClicked(MouseEvent e) {
 		 		MainPanel_Home obj = new MainPanel_Home();
 				obj.main(null);
+				dispose();
 		 	}
 		 });
 		 btn_home.setBackground(new Color(0,0,0,0));
@@ -145,6 +150,11 @@ public class AddSubject extends JFrame implements ActionListener, MouseListener{
 		layeredPane.setBounds(0, 0, 1350, 729);
 		contentPane.add(layeredPane);
 		layeredPane.setLayout(new CardLayout(0, 0));
+		
+		panelUpdate = new JPanel();
+		panelUpdate.setLayout(null);
+		layeredPane.add(panelUpdate, "name_9924311256900");
+		
 		
 		panelInsert = new JPanel();
 		panelInsert.setLayout(null);
@@ -306,9 +316,6 @@ public class AddSubject extends JFrame implements ActionListener, MouseListener{
 		btnNewButton.setBounds(1083, 143, 97, 25);
 		panel_4.add(btnNewButton);
 		
-		panelUpdate = new JPanel();
-		panelUpdate.setLayout(null);
-		layeredPane.add(panelUpdate, "name_9924311256900");
 		
 		JPanel panel_4_1_2_1 = new JPanel();
 		panel_4_1_2_1.setLayout(null);
@@ -328,13 +335,6 @@ public class AddSubject extends JFrame implements ActionListener, MouseListener{
 		
 		btn_SwitchAddSub_update.setBounds(1143, 658, 168, 32);
 		panel_4_1_2_1.add(btn_SwitchAddSub_update);
-		
-		JButton btn_Back_Update = new JButton("BACK");
-		btn_Back_Update.addActionListener(this);
-		btn_Back_Update.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btn_Back_Update.setBackground(Color.GRAY);
-		btn_Back_Update.setBounds(31, 7, 146, 32);
-		panel_4_1_2_1.add(btn_Back_Update);
 		
 		JPanel panel_4_2 = new JPanel();
 		panel_4_2.setLayout(null);
