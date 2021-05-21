@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.dao.SessionDao;
-import com.models.Session;
+import com.models.UsrSession;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;

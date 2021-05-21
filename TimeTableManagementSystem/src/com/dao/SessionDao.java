@@ -4,14 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.models.Session;
+import com.models.UsrSession;
 import com.util.DBUtill;
 
 public class SessionDao {
 	
 static Connection con = DBUtill.getConnection();
 	
-	public void insertSession(Session session) throws SQLException {
+	public void insertSession(UsrSession session) throws SQLException {
 		// 
 		System.out.println("session Dao");
 		PreparedStatement pst = con.prepareStatement("insert into session_details values(?,?,?,?,?,?,?,?,?,?,?,?)");
@@ -31,7 +31,7 @@ static Connection con = DBUtill.getConnection();
 	}
 	
 	
-	public void InsertSession(Session session) throws SQLException {
+	public void InsertSession(UsrSession session) throws SQLException {
 		// 
 	
 		PreparedStatement pst = con.prepareStatement("insert into session_details (ID,First_Lecture,Tag,room,Main_Group,Sub_Group,Subject,Subject_code,No_Of_Student,Day,Time_slot) values(?,?,?,?,?,?,?,?,?,?,?)");
@@ -51,7 +51,7 @@ static Connection con = DBUtill.getConnection();
 	
 	
 	
-	public void updateSession(Session session) throws SQLException {		
+	public void updateSession(UsrSession session) throws SQLException {		
 		PreparedStatement pst = con.prepareStatement("update session_details set First_Lecture=?,"+"Second_Lecture=?,"+"Tag=?,"+" room=?,"+" Main_Group=?,"+"Sub_Group=?,"+" Subject=?,"+"Subject_code=?,"+"No_Of_Student=?,"+"Day=?,"+"Time_slot=? where ID = ?");
 		
 		pst.setString(1, session.getLecture1());
@@ -70,7 +70,7 @@ static Connection con = DBUtill.getConnection();
 		pst.executeUpdate();			
 	}
 	
-	public void updateSessionu(Session session) throws SQLException {		
+	public void updateSessionu(UsrSession session) throws SQLException {		
 		PreparedStatement pst = con.prepareStatement("update session_details set First_Lecture=?,"+"Tag=?,"+" room=?,"+" Main_Group=?,"+"Sub_Group=?,"+" Subject=?,"+"Subject_code=?,"+"No_Of_Student=?,"+"Day=?,"+"Time_slot=? where ID = ?");
 		
 		pst.setString(1, session.getLecture1());		

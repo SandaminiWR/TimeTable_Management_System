@@ -17,7 +17,7 @@ import javax.swing.text.StyledEditorKit.BoldAction;
 
 import com.dao.SessionDao;
 import com.models.Lecture;
-import com.models.Session;
+import com.models.UsrSession;
 import com.models.Subject;
 import com.util.DBUtill;
 
@@ -74,7 +74,7 @@ public class AddSession extends JFrame implements ActionListener, MouseListener{
 	private DefaultTableModel tableModelx;
 	
 	private SessionDao ses;
-	private Session session;
+	private UsrSession session;
 	private Lecture lecture;
 	private DBUtill db;
 	private static ResultSet rs  = null;
@@ -148,7 +148,7 @@ public void switchPanels(JPanel panel) {
 		
 		
 		this.ses = new SessionDao();
-		this.session = new Session();
+		this.session = new UsrSession();
 		this.lecture = new Lecture();
 		this.db = new DBUtill();
 		
@@ -1155,7 +1155,7 @@ public void switchPanels(JPanel panel) {
 		
 		if( confirm == 0 ) {	
 			try {
-				ses.InsertSession( new Session(id, lec1, Tag, Room, Subgroup, Maingroup, subject,  subjectCode, noOfStudent,  Day, timeslot ));	
+				ses.InsertSession( new UsrSession(id, lec1, Tag, Room, Subgroup, Maingroup, subject,  subjectCode, noOfStudent,  Day, timeslot ));	
 				this.showPlainMessageDialog("Successfuly Inserted", "Insert");
 				x=0;
 				}			
@@ -1190,7 +1190,7 @@ public void switchPanels(JPanel panel) {
 		
 		if( confirm == 0 ) {	
 			try {
-				ses.insertSession( new Session(id, lec1, lec2, Tag, Room, Subgroup, Maingroup, subject,  subjectCode, noOfStudent,  Day, timeslot ));	
+				ses.insertSession( new UsrSession(id, lec1, lec2, Tag, Room, Subgroup, Maingroup, subject,  subjectCode, noOfStudent,  Day, timeslot ));	
 				this.showPlainMessageDialog("Successfuly Inserted", "Insert");
 				x=0;
 				}			
@@ -1209,7 +1209,7 @@ public void switchPanels(JPanel panel) {
 		
 		int confirm;
 		String changeMsg;
-		Session usession = null;
+		UsrSession usession = null;
 		usession = this.db.searchSessionById(ID);
 		
 		changeMsg = "Session Details of Session id :" + ID + "\n\n";
@@ -1273,7 +1273,7 @@ public void switchPanels(JPanel panel) {
 		
 		int confirm;
 		String changeMsg;
-		Session usession = null;
+		UsrSession usession = null;
 		usession = this.db.searchSessionById(ID);
 		
 		changeMsg = "Session Details of Session id :" + ID + "\n\n";

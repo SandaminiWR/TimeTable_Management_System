@@ -106,7 +106,7 @@ public class MainPanel_Home {
 		mnNotAvailable = new JMenu("NOT AVAILABLE");
 		mnNotAvailable.setForeground(Color.BLACK);
 		mnNotAvailable.setFont(new Font("Dialog", Font.BOLD, 15));
-		mnNotAvailable.setIcon(new ImageIcon("C:\\Users\\hp\\Desktop\\ITPMFinalWorkSpace\\TimeTable_Management_System\\TimeTableManagementSystem\\image\\Configuration-icon (1).png"));
+		mnNotAvailable.setIcon(new ImageIcon("F:\\_____SLIIT_____\\3_RD_YEAR\\IT3040______ITPM_____\\ITPMFinalWorkSpace\\TimeTable_Management_System\\TimeTableManagementSystem\\image\\Configuration-icon (1).png"));
 		menuBar.add(mnNotAvailable);
 		
 		menu_time = new JMenuItem("Manage Not-Available Time");
@@ -162,7 +162,7 @@ public class MainPanel_Home {
 		menu_session = new JMenuItem("Manage Session Room");
 		menu_session.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Non_Overlapping obj = new Non_Overlapping();
+				ManageSessionRoom obj = new ManageSessionRoom();
 				obj.main(null);
 				frmHome.dispose();
 				frmHome.dispose();
@@ -182,7 +182,7 @@ public class MainPanel_Home {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				AddLecturer sup = new AddLecturer();
+				Statistics sup = new Statistics();
 				AddLecturer.main(null);
 				frmHome.setVisible(false);
 				frmHome.dispose();
@@ -230,7 +230,7 @@ public class MainPanel_Home {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				AddLecturer sup = new AddLecturer();
+				AddLocation sup = new AddLocation();
 				AddLecturer.main(null);
 				frmHome.setVisible(false);
 				frmHome.dispose();
@@ -383,7 +383,7 @@ public class MainPanel_Home {
 				frmHome.dispose();
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\hp\\Desktop\\ITPMFinalWorkSpace\\TimeTable_Management_System\\TimeTableManagementSystem\\image\\Generate-tables-icon.png"));
+		btnNewButton.setIcon(new ImageIcon("F:\\_____SLIIT_____\\3_RD_YEAR\\IT3040______ITPM_____\\ITPMFinalWorkSpace\\TimeTable_Management_System\\TimeTableManagementSystem\\image\\Generate-tables-icon.png"));
 		btnNewButton.setBounds(84, 36, 128, 99);
 		panel.add(btnNewButton);
 		

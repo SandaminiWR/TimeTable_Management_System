@@ -12,7 +12,7 @@ import com.dao.NotAvailableDao;
 import com.dao.editLocationDao;
 import com.models.Lecture;
 import com.models.NotAvailable;
-import com.models.Session;
+import com.models.UsrSession;
 import com.models.editLocation;
 import com.util.DBUtill;
 
@@ -42,7 +42,7 @@ public class AddEditLocation extends JFrame implements ActionListener, MouseList
 	private JFrame frame;
 	private editLocation editLocation;
 	private editLocationDao editLoc;
-	private Session session;
+	private UsrSession session;
 	private DBUtill db;
 	private static ResultSet rs  = null;
 	
@@ -95,7 +95,7 @@ public class AddEditLocation extends JFrame implements ActionListener, MouseList
 		
 		this.editLoc = new editLocationDao();
 		this.editLocation = new editLocation();
-		this.session = new Session();
+		this.session = new UsrSession();
 		this.db = new DBUtill();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

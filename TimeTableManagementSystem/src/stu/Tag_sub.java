@@ -91,6 +91,7 @@ public class Tag_sub {
 		frmCreateTags.setBounds(0, 0, 1366, 768);
 		frmCreateTags.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCreateTags.getContentPane().setLayout(null);
+		
 		JButton btn_home = new JButton("");
 		 btn_home.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent arg0) {

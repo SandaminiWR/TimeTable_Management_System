@@ -12,7 +12,7 @@ import javax.swing.border.EmptyBorder;
 import com.dao.NotAvailableDao;
 import com.models.Lecture;
 import com.models.NotAvailable;
-import com.models.Session;
+import com.models.UsrSession;
 import com.util.DBUtill;
 
 import net.proteanit.sql.DbUtils;
@@ -45,7 +45,7 @@ public class AddNotAvalable extends JFrame implements ActionListener, MouseListe
 	private NotAvailableDao ntAvail;
 	private NotAvailable notAvailable;
 	private Lecture lecture;
-	private Session session;
+	private UsrSession session;
 	private DBUtill db;
 	private static ResultSet rs  = null;
 	
@@ -108,7 +108,7 @@ public class AddNotAvalable extends JFrame implements ActionListener, MouseListe
 		this.ntAvail = new NotAvailableDao();
 		this.notAvailable = new NotAvailable();
 		this.lecture = new Lecture();
-		this.session = new Session();
+		this.session = new UsrSession();
 		this.db = new DBUtill();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

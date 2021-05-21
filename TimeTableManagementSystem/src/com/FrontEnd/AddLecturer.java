@@ -135,6 +135,7 @@ public class AddLecturer extends JFrame implements ActionListener, MouseListener
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
 		JButton btn_home = new JButton("");
 		btn_home.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

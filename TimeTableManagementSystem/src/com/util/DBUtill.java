@@ -8,8 +8,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.models.Lecture;
+import com.models.Location;
 import com.models.NotAvailable;
-import com.models.Session;
+import com.models.UsrSession;
 import com.models.Subject;
 import com.models.editLocation;
 
@@ -21,7 +22,7 @@ public class DBUtill {
 	private static PreparedStatement pst = null;
 	private static Statement stmt = null;
 	
-	private static final String url = "jdbc:mysql::3306/tms";
+	private static final String url = "jdbc:mysql://localhost/tms";
 	private static final String user = "root";
 	private static final String passwrd = "";	 
 	
@@ -143,7 +144,7 @@ public class DBUtill {
 		}
 	 
 	 
-	 public Session searchSessionById(int sesID) {		
+	 public UsrSession searchSessionById(int sesID) {		
 			try {
 				stmt = con.createStatement();
 				String sql = "select * from session_details where ID = '"+sesID+"'";
@@ -164,7 +165,7 @@ public class DBUtill {
 					String timeslot = rs.getString(12);
 					
 									
-					return new Session( id, lecture1, lecture2, tag, room ,subgroup,maingroup,  subject,subjectCode,noOfStudent, day , timeslot);
+					return new UsrSession( id, lecture1, lecture2, tag, room ,subgroup,maingroup,  subject,subjectCode,noOfStudent, day , timeslot);
 					
 				}
 			}catch( SQLException e ) {
@@ -502,4 +503,68 @@ public class DBUtill {
 			}		
 			return rs;			
 		}
+	 /*
+	  * 
+	  * member 4
+	  * 
+	  */
+	 
+	 public ResultSet refreshAddLocationTable() {	
+		 
+			try {
+				getConnection();
+				String query = "Select * From location";
+				
+				pst = con.prepareStatement(query);
+				rs = pst.executeQuery(query);			
+			} catch (Exception e) {			
+				System.out.println("Data Loading Error!!\n Please Check The Connection");
+				System.err.println("Exception :" +e.getMessage());
+			}		
+			return rs;			
+		}
+	
+	
+	
+	 public Location searchLocationByName(String RName) {		
+			try {
+				stmt = con.createStatement();
+				String sql = "select * from location where RoomName = '"+RName+"'";
+				rs = stmt.executeQuery(sql);
+				
+				if( rs.next() ) {
+					String buildingNmae = rs.getString(1);
+					String  roomtype = rs.getString(2);
+					String roomName = rs.getString(3);
+				    int capacity = rs.getInt(4);
+					
+					
+					return new Location(buildingNmae,roomtype,roomName,capacity);
+					
+				}
+			}catch( SQLException e ) {
+				System.out.println("searchLectureById");
+				System.err.println("Exception :" +e.getMessage());
+			}
+			
+			return null;
+			
+		}
+	
+	
+	  public ResultSet searchByLocationType( String searchType, String searchText ) {
+		  	rs = null;
+	 
+			 try {			
+					String query = "select * from location where "+searchType+"= '"+searchText+"' ";
+					System.out.println(query);
+					pst = con.prepareStatement(query);
+					//pst.setInt(0, Integer.parseInt(id));	
+					rs = pst.executeQuery(query);			
+				} catch (SQLException e) {			
+					e.printStackTrace();
+				}		
+			 
+			 return rs;
+	  }
 }
